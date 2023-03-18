@@ -1,0 +1,96 @@
+$*************************HEADING************************
+$
+PROJ 'SC_c21' '30m'
+$
+$ Field case: Wellington South Coast class 21 30m resolution ,giving nested grid outputs
+$ Time of simulation: 7 November 2012
+$ Outer frame is a 30m by 30m grid of size ncols 909 , nrows 435 (xll 299000, yll 5409454.0)
+$ 
+$********************MODEL INPUT*************************
+$
+SET LEVEL 0.
+
+$
+CGRID REG 299000. 5409454. 0. 27270. 13050. 908 434 CIRCLE 33 0.0521 1. 30
+
+$				
+INPGRID BOTTOM REG 299000. 5409454. 0. 908 434 30 30 EXC 0
+
+READINP BOTTOM -.01 'bath_30m_swan.txt' 1 0 FREE
+
+$
+WIND 17 71.32
+
+$  							  
+BOUNDSPEC SIDE S CONSTANT PAR 4.32 10.22 91.93 30.
+
+$
+GEN3
+BREAKING
+FRICTION JON 0.038
+TRIADS
+$
+$*************************************************************
+$
+
+NGRID 'Nest1' 307700. 5417620. 0. 1400 1400
+
+NESTOUT 'Nest1' 'Nest1_specout_C21.txt'
+
+NGRID 'Nest2' 309050. 5417950. 0. 1400 1400
+
+NESTOUT 'Nest2' 'Nest2_specout_C21.txt'
+
+NGRID 'Nest3' 309800. 5418850. 0. 1400 1400
+
+NESTOUT 'Nest3' 'Nest3_specout_C21.txt'
+
+NGRID 'Nest4' 311190. 5419140. 0. 1436 1400
+
+NESTOUT 'Nest4' 'Nest4_specout_C21.txt'
+
+NGRID 'Nest5' 312610. 5419300. 0. 1400 1410
+
+NESTOUT 'Nest5' 'Nest5_specout_C21.txt'
+
+NGRID 'Nest6' 313720. 5419490. 0. 1400 1400
+
+NESTOUT 'Nest6' 'Nest6_specout_C21.txt'
+
+NGRID 'Nest7' 315000. 5419130. 0. 1400 1400
+
+NESTOUT 'Nest7' 'Nest7_specout_C21.txt'
+
+NGRID 'Nest8' 315000. 5420530. 0. 1400 1400
+
+NESTOUT 'Nest8' 'Nest8_specout_C21.txt'
+
+NGRID 'Nest9' 315140. 5421100. 0. 1400 1400
+
+NESTOUT 'Nest9' 'Nest9_specout_C21.txt'
+
+NGRID 'Nest10' 315730. 5419630. 0. 1400 1400
+
+NESTOUT 'Nest10' 'Nest10_specout_C21.txt'
+
+NGRID 'Nest11' 315670. 5420200. 0. 1400 1400
+
+NESTOUT 'Nest11' 'Nest11_specout_C21.txt'
+
+NGRID 'Nest12' 316940. 5419560. 0. 1400 1400
+
+NESTOUT 'Nest12' 'Nest12_specout_C21.txt'
+
+NGRID 'Nest13' 317790. 5419970. 0. 1400 1400
+
+NESTOUT 'Nest13' 'Nest13_specout_C21.txt'
+
+NGRID 'Nest14' 317900. 5421110. 0. 1400 1400
+
+NESTOUT 'Nest14' 'Nest14_specout_C21.txt'
+
+$
+$ set itest=1 in order to get detailed information
+TEST 1,0
+COMPUTE
+STOP
